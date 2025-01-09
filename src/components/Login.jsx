@@ -1,17 +1,27 @@
 import { useState } from "react";
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { BASE_URL } from "../utils/constants";
 
 const Login = () => {
   const [email, setEmail] = useState("wasim@gmail.com");
   const [password, setPassword] = useState("Wasim@123");
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const user = useSelector((store) => store.user);
+
+  if (user) {
+    return navigate("/");
+  }
 
   const handleLogin = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:3000/login",
+        BASE_URL + "/login",
         {
           email,
           password,
@@ -19,7 +29,7 @@ const Login = () => {
         { withCredentials: true }
       );
       dispatch(addUser(res?.data?.data));
-      console.log(res.data);
+      navigate("/");
     } catch (err) {
       console.log(err);
     }
@@ -55,6 +65,7 @@ const Login = () => {
               />
             </label>
           </div>
+          <p className=" text-red-600 text-lg font-mono">{error}</p>
           <div className="card-actions justify-center my-2 ">
             <button
               className="btn btn-primary hover:shadow-lg hover:scale-105 font-bold"

@@ -8,6 +8,7 @@ import Profile from "./components/Profile";
 import Feed from "./components/Feed";
 import Error from "./components/Error";
 import SignUp from "./components/SignUp";
+import Logout from "./components/Logout";
 
 export default function App() {
   return (
@@ -18,9 +19,11 @@ export default function App() {
             <Route path="/" element={<Body />}>
               <Route path="/" element={<Feed />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/connection" element={<Connections />} />
+              <Route path="/logout" element={<Logout />} />
+              <Route path="/connections" element={<Connections />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/signup" element={<SignUp />} />
+              <Route path="/error" element={<Error />} />
             </Route>
             <Route path="*" element={<Error />} />
           </Routes>
