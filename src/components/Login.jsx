@@ -31,7 +31,7 @@ const Login = () => {
       dispatch(addUser(res?.data?.data));
       navigate("/");
     } catch (err) {
-      console.log(err);
+      setError(err?.response?.data);
     }
   };
   return (
@@ -65,7 +65,7 @@ const Login = () => {
               />
             </label>
           </div>
-          <p className=" text-red-600 text-lg font-mono">{error}</p>
+          <p className=" text-red-600 text-lg font-bold">{error}</p>
           <div className="card-actions justify-center my-2 ">
             <button
               className="btn btn-primary hover:shadow-lg hover:scale-105 font-bold"
