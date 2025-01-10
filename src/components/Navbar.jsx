@@ -20,10 +20,7 @@ const Navbar = () => {
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 rounded-full">
-                <img
-                  alt="Profile Picture"
-                  src= {user?.photoUrl}
-                />
+                <img alt="Profile Picture" src={user?.photoUrl} />
               </div>
             </div>
             <ul
@@ -38,6 +35,9 @@ const Navbar = () => {
               </li>
               <li>
                 <Link to="/connections">Connections</Link>
+              </li>
+              <li>
+                <Link to="/received">Request Received</Link>
               </li>
               <li>
                 <Link to="/logout">Logout</Link>

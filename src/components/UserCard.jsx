@@ -1,5 +1,9 @@
 const UserCard = ({ user }) => {
-  const { _id, fname, lname, skills, about, photoUrl, gender, age } = user;
+
+  if(!user)
+    return <div></div>;
+
+  const { _id ,  fname, lname, skills, about, photoUrl, gender, age } = user;
 
   return (
       <div className="flex justify-center my-10 mx-4">
@@ -11,7 +15,6 @@ const UserCard = ({ user }) => {
             <h2 className="card-title">{fname + " " + lname} </h2>
             {age && gender && (
               <p className="my-2 font-bold text-emerald-500 ">
-                {" "}
                 {gender + " / " + age}{" "}
               </p>
             )}

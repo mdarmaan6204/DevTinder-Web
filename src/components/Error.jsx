@@ -1,6 +1,4 @@
-const Error = () => {
-  console.log("Error");
-  
+const Error = () => {  
   return (
     <div>Error</div>
   )

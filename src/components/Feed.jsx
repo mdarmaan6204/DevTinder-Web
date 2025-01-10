@@ -25,6 +25,10 @@ const Feed = () => {
     }
   };
 
+  if (!feed) {
+    return <div className=" flex justify-center text-red-400 text-2xl font-bold">No more user</div>;
+  }
+
   useEffect(() => {
     fetchFeed();
   }, []);

@@ -5,6 +5,7 @@ import { removeUser } from "../utils/userSlice";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { removeFeed } from "../utils/feedSlice";
+import { removeConnection } from "../utils/connectionSlice";
 
 const Logout = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ const Logout = () => {
       });
       dispatch(removeUser());
       dispatch(removeFeed());
+      dispatch(removeConnection());
       //   Remove token cookie
       document.cookie =
         "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
