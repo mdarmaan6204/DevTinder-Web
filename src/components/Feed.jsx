@@ -19,20 +19,32 @@ const Feed = () => {
       const res = await axios.get(BASE_URL + "/feed", {
         withCredentials: true,
       });
+
       dispatch(addFeed(res?.data?.data));
     } catch (err) {
       navigate("/error");
     }
   };
 
-  if (!feed) {
-    return <div className=" flex justify-center text-red-400 text-2xl font-bold">No more user</div>;
-  }
-
   useEffect(() => {
     fetchFeed();
   }, []);
-  return <div className="">{feed && <UserCard user={feed[0]} />}</div>;
+
+  if (!feed) return;
+
+  if (feed.length === 0) {
+    return (
+      <div className=" flex justify-center text-red-400 text-2xl font-bold">
+        No more user
+      </div>
+    );
+  }
+
+  return (
+    <div className="">
+      {feed && <UserCard user={feed[0]} showAction={true} />}
+    </div>
+  );
 };
 
 export default Feed;

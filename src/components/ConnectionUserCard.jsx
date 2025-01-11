@@ -9,7 +9,6 @@ const ConnectionUserCard = ({ user, showActions }) => {
   const dispatch = useDispatch();
   if (user.length == 0) return <div></div>;
 
-  console.log("User" + user?.fname);
 
   const { _id, fname, lname, skills, about, photoUrl, gender, age } = user;
 
@@ -24,7 +23,6 @@ const ConnectionUserCard = ({ user, showActions }) => {
       );
       dispatch(removeRequest(_id));
     } catch (err) {
-      console.log(err);
       navigate("/error");
     }
   };
