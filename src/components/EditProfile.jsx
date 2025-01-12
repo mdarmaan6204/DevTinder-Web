@@ -8,8 +8,8 @@ import { addUser, removeUser } from "../utils/userSlice";
 const EditProfile = ({ user }) => {
   const [fname, setFname] = useState(user?.fname);
   const [lname, setLname] = useState(user?.lname);
-  const [age, setAge] = useState(user?.age);
-  const [gender, setGender] = useState(user?.gender);
+  const [age, setAge] = useState(user?.age || 20);
+  const [gender, setGender] = useState(user?.gender || "Male");
   const [about, setAbout] = useState(user?.about);
   const [photoUrl, setPhotoUrl] = useState(user?.photoUrl);
   const [error, setError] = useState("");
@@ -74,7 +74,7 @@ const EditProfile = ({ user }) => {
                   </div>
                   <select
                     className="select select-bordered w-full max-w-xs"
-                    value={gender} // Use value here to set the selected option
+                    value={gender}
                     onChange={(e) => setGender(e.target.value)}
                   >
                     <option value="" disabled>

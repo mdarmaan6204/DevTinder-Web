@@ -7,7 +7,6 @@ import Connections from "./components/Connections";
 import Profile from "./components/Profile";
 import Feed from "./components/Feed";
 import Error from "./components/Error";
-import SignUp from "./components/SignUp";
 import Logout from "./components/Logout";
 import RequestReceived from "./components/RequestReceived";
 
@@ -24,7 +23,6 @@ export default function App() {
               <Route path="/connections" element={<Connections />} />
               <Route path="/received" element={<RequestReceived />} />
               <Route path="/profile" element={<Profile />} />
-              <Route path="/signup" element={<SignUp />} />
               <Route path="/error" element={<Error />} />
             </Route>
             <Route path="*" element={<Error />} />
