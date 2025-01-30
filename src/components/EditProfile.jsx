@@ -29,7 +29,7 @@ const EditProfile = ({ user }) => {
       dispatch(removeUser());
       dispatch(addUser(res?.data?.data));
       setSuccess(true);
-      setTimeout(() => setSuccess(false), 3000);
+      setTimeout(() => setSuccess(false), 7777);
       
     } catch (err) {
       setError(err?.response?.data);
