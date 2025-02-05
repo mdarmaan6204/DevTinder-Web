@@ -8,12 +8,13 @@ const UserCard = ({ user, showAction }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  if (!user) return <div></div>;
+  if (!user) return <div>Loading...</div>;
 
   const { _id, fname, lname, skills, about, photoUrl, gender, age } = user;
 
   const handleAction = async (status) => {
     try {
+
       const res = await axios.post(
         BASE_URL + "/request/send/" + status + "/" + _id,
         {},
@@ -21,6 +22,8 @@ const UserCard = ({ user, showAction }) => {
       );
       dispatch(removeUserFromFeed(_id));
     } catch (err) {
+      console.log(err);
+
       navigate("/error");
     }
   };
